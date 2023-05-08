@@ -5,7 +5,7 @@ const Vendororder = () => {
   return (
     <>
     {/*title of page */}
-    <div id='title'>Vendor Order Page</div>
+    <div id='title'>Vendor Order</div>
     {/*defining different buttons for vendor order page */}
     <button>Take Order</button><br />
     <button>Transaction history</button><br />

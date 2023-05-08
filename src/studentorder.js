@@ -5,7 +5,7 @@ const Studentorder = () => {
   return (
     <>
     {/*title of page */}
-    <div id='title'>Student Order Page</div>
+    <div id='title'>Student Order</div>
     <div>
     {/*defining different button for various jobs */}
     <button>Scan QR</button><br />

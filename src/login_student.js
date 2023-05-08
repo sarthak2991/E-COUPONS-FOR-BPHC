@@ -19,7 +19,7 @@ setPassword('')}
 
 
   return (
-    <div id='studentorder'>
+    <>
       {/*title of page */}
       <div id='title'>Student Login</div>
       {/*taking input from client */}
@@ -36,7 +36,7 @@ setPassword('')}
         {useMemo(()=>{if(loggedin === true){alert('login successful and redirecting to order page', window.location.href='/studentorder')} if(loggedin === false){alert('invalid credentials')} setLoggedin('hi')},[loggedin])}
         {/*button for getting back to login page */}
         <Link to='/'><button id='backtohome' onClick={()=>{alert('redirecting back to home')}}>Back To Login Page</button></Link>
-    </div>
+    </>
   )
 }
 

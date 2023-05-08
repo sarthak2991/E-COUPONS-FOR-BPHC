@@ -34,7 +34,7 @@ const Loginvendor = () => {
 }
 
   return (
-    <div id='vendorlogin'>
+    <>
       {/* title of page */}
         <div id='title'>Vendor Login </div>
         {/* taking input from client */}
@@ -53,7 +53,7 @@ const Loginvendor = () => {
       {useMemo(()=>{if(loggedin === true){alert('login successful and redirecting to order page', window.location.href='/vendororder')} if(loggedin === false){alert('invalid otp'); setOtp('')} setLoggedin('hi')},[loggedin])}
       {/*button for going back to login page */}
         <Link to='/'><button id='backtohome' onClick={()=>{alert('redirecting back to home page')}}>Back To Login Page</button></Link>
-    </div>
+    </>
   )  
 }
 
