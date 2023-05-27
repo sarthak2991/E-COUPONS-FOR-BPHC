@@ -12,8 +12,8 @@ The vendor login can be done through entering phone number upon which a otp will
 The student can login through id and password or Bits Google Account. Id and password are same as on SWD website. After successful login, student will be taken to order page where student can scan the QR code and pay the bills. Student can see the transaction in transaction history options. They can check their current balance i.e other advances money balance. At last student can logout by using logout option.
 
 ### PS : 
-The backend is not ready so order page for both vendor and students and login page for student using Google will not work. These pages will be ready for use very soon. Thank You!!!
+The backend is not ready for Google OAuth. It will be ready for use very soon. Thank You!!!
 
 ## Commands for running the project :
 
-Clone the project first to your computer. Then run the command npm install . This will create a nodemodules folder in project folder. Then you can run project through command npm start .
+Clone the project first to your computer. Open two terminals. In first terminal, run cd ./client and in second terminal, run ./server. Then run the command npm install in both terminals . This will create a nodemodules folder in project folder. Then you can run project through command npm start .
