@@ -1,0 +1,140 @@
+#title{
+    color: rgb(39,126,227);
+    font-size: 2em;
+    padding-top: 1em;
+    padding-bottom : 1.2em; 
+    margin-left: 43%;
+    text-align: left;
+    font-weight: bold;
+    
+}
+#titlemenu{
+    color: rgb(245, 218, 9);
+    font-size: 2em;
+    padding-top: 0.5em;
+    padding-bottom : 1em; 
+    margin-left: 45%;
+    text-align: left;
+    font-weight: bold;
+}
+#greetings{
+    color: rgba(5, 248, 147, 0.865);
+    font-size: 1.5em;
+    padding-bottom : 0.5em; 
+    margin-left: 43%;
+    text-align: left;
+    font-weight:800;
+
+}
+
+#instructions{
+    color: rgba(5, 248, 29, 0.985);
+    font-size: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom : 0.5em; 
+    text-align: center;
+    font-weight:800;
+}
+
+#footer{
+    margin-top: 10%;
+    font-size: 2em;
+    color: #820ef6;
+    background-color: #c74bcd;
+    
+}
+
+#emoji{
+    width: 1em;
+    height: 1em;
+    padding: 0.05em;
+}
+
+input{
+    width: 20em;
+    height: 2em;
+    margin-left: 40%;
+    margin-right: 2em;
+    font-size: 1em;
+}
+
+button{
+    background-color: #cf4dd6;
+    font-size: 1em;
+    padding: 0.5em;
+    width: 20em;
+    height: 4em;
+    padding: 1em;
+    margin-top: 1%;
+    margin-bottom: 1em;
+    margin-left: 40%;
+    border-radius: 0.6em;
+}
+
+button:hover{
+    background-color: #e382e8;
+
+}
+
+#backtohome{
+    background-color: #cf4dd6;
+    font-size: 1em;
+    padding: 1em;
+    width: 15em;
+    height: 3em;
+    margin-top: 3%;
+    margin-bottom: 1em;
+    margin-left: 43%;
+    border-radius: 0.6em;
+}
+
+#backtohome:hover{
+    background-color: #e382e8;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 0.5em;
+    row-gap: 0.4em;
+    color: #00fb8a;
+    font-weight: 800;
+    margin-left: 2%;
+    background-color: #c74bcd;
+}
+.grid-container1{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 0.5em;
+    row-gap: 0.4em;
+    color: #00fb8a;
+    font-weight: 800;
+    margin-left: 2%;
+    background-color: #c74bcd;
+}
+
+.grid-item{
+    display: inline-grid;
+    padding: 0.2em;
+}
+
+.quantity{
+    width: 10em;
+    height: 1.5em;
+    margin-left: 0%;
+    font-size: 1em;
+}
+
+img#qrcode{
+    width: 14em;
+    height: 14em;
+    margin-left: 40%;
+}
+
+#video{
+    margin-left: 30%;
+}
+
+#canvas{
+    display: none;
+}
