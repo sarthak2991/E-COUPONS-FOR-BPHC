@@ -13,8 +13,9 @@ const Scan = () => {
     audio: false,
     video: {width:700, height:700,facingMode:'user', }
   };
+  const [status,setStatus] = useState(false)
   // defining capture function
-  const capture = () => {
+  function capture () {
     // initializing variables
     const canvas = document.querySelector("canvas");
 const video = document.querySelector("video");
@@ -27,12 +28,15 @@ ctx.drawImage(video,0,0,700,700)
   const data = ctx.getImageData(0,0,700,700)
   // using jsqr to decode the qr code in image
   const code = jsQR(data.data,data.width,data.height)
+  console.log(code)
   // sending the decoded value of qr code to backend to make transaction
-  if(code){const data = code.data;axios.post('http://localhost:5000/studentorder',{data,id},{headers:headers}).then((res)=>{
-    if(res.data==='Success'){alert('Transaction Successful!!!')}
-    else{alert('Transaction Failed!!')}
-  })}
-  else{alert('please realign the code and press capture')}
+  if(code){
+    const data = code.data;axios.post('http://localhost:5000/studentorder',{data,id},{headers:headers}).then((res)=>{
+    if(res.data==='Success'){setStatus(true);alert('Transaction Successful!!!');window.location.href='/studentorder'}
+    else if(res.data === 'Payment already done'){alert('Payment already done');window.location.href='/studentorder'}
+    else{alert('Transaction Failed!!');window.location.href='/studentorder'}
+  })
+}
 }
 
 
@@ -53,8 +57,8 @@ const handleClick = () => {localstream.getTracks().forEach(function(track){track
     <div id='instructions'>Please align the qr code so that it can be seen in screen and click on capture button</div>
     <video id='video'></video>
     <canvas id='canvas'></canvas>
-    {/*button to capture the image from video stream */}
-    <button onClick={()=>capture()}>Capture</button>
+    {/*continuous capturing of image from video stream*/}
+    {(localstream)?((status)?(<></>):(setInterval(capture,5000))):(<></>)}
     {/*button to go back to order page */}
     <Link to='/studentorder'><button onClick={()=>{handleClick()}}>Back to Order Page</button></Link>
     </>

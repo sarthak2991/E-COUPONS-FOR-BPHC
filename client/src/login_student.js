@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from 'react'
 import { Link} from 'react-router-dom/cjs/react-router-dom.min'
-import googlelogo from './download.png'
 import axios from 'axios'
 import { headers} from './headers'
+import {GoogleLogin,GoogleOAuthProvider} from '@react-oauth/google'
+import jwtDecode from "jwt-decode";
+import data from './client_secret'
 
 // defining component for student login page
 const Loginstudent = () => {
@@ -37,10 +39,39 @@ setPassword('')}
           {/*button for showing up and hiding the password */}
           {(show)?(<button onClick={(e)=>{e.preventDefault();setShow(false)}}>Hide Password</button>):(<button onClick={(e)=>{e.preventDefault();setShow(true)}}>Show Password</button>)}
           <button onClick={(e)=>{handleClick(e)}}>Submit</button><br />
-          <button id='googlelogin'><img src={googlelogo} alt='google logo' style={{'width':'50px','height':'25px'} } />Sign in with your Google Account</button>
+          
         </form>
+        {/*Google OAuth */}
+        {/*client id recieved from google api */}
+        <div id='googleauth'><GoogleOAuthProvider clientId={data.web.client_id}>
+    <GoogleLogin 
+    type='standard'
+    size='medium'
+    logo_alignment='center'
+    width='200px'
+  onSuccess={(credentialResponse) => {
+    const credential =jwtDecode(credentialResponse.credential)
+    if(credential.hd === 'hyderabad.bits-pilani.ac.in'){
+    setId(credential.email.slice(0,9))
+    setLoggedin(true)
+    
+  }
+    else{alert('Please use your bits mail to login')}
+    
+
+  }}
+  onError={() => {
+    alert('Login Failed');
+  }}
+  useOneTap
+/>;
+</GoogleOAuthProvider></div>
+
         {/*redirecting client to order page after verifying */}
-        {useMemo(()=>{if(loggedin === true){alert('login successful and redirecting to order page', window.location.href='/studentorder')} if(loggedin === false){alert('invalid credentials')} setLoggedin('hi')},[loggedin])}
+        {useMemo(()=>{if(loggedin === true){alert('login successful and redirecting to order page'); 
+        localStorage.setItem('student_id',id)
+        window.location.href='/studentorder'; 
+        } if(loggedin === false){alert('invalid credentials')} setLoggedin('hi')},[loggedin])}
         {/*button for getting back to login page */}
         <Link to='/'><button id='backtohome' onClick={()=>{alert('redirecting back to home')}}>Back To Login Page</button></Link>
     </>
