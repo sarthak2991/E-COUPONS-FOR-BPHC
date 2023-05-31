@@ -12,7 +12,7 @@ The vendor login can be done through entering phone number upon which a otp will
 The student can login through id and password or Bits Google Account. Id and password are same as on SWD website. After successful login, student will be taken to order page where student can scan the QR code and pay the bills. Student can see the transaction in transaction history options. They can check their current balance i.e other advances money balance. At last student can logout by using logout option.
 
 ### PS : 
-The backend is not ready for Google OAuth. It will be ready for use very soon. Thank You!!!
+The javascript is to be converted into typescript.
 
 ## Commands for running the project :
 
